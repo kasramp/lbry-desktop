@@ -35,10 +35,12 @@ export const doSocketConnect = () => dispatch => {
       };
 
       socket.onerror = e => {
+        console.error('websocket onerror', e);
         // onerror and onclose will both fire, so nothing is needed here
       };
 
       socket.onclose = e => {
+        console.error('websocket onclose', e);
         retryCount += 1;
         connectToSocket();
       };
