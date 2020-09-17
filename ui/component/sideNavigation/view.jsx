@@ -16,13 +16,13 @@ const BACKSLASH_KEY_CODE = 220;
 
 const HOME = {
   title: 'Home',
-  navigate: `/`,
+  link: `/`,
   icon: ICONS.HOME,
 };
 
 const RECENT_FROM_FOLLOWING = {
   title: 'Following',
-  navigate: `/$/${PAGES.CHANNELS_FOLLOWING}`,
+  link: `/$/${PAGES.CHANNELS_FOLLOWING}`,
   icon: ICONS.SUBSCRIBE,
 };
 
