@@ -1,7 +1,6 @@
 .footer {
   display: flex;
   flex-direction: column;
-
   justify-content: center;
   align-items: center;
   max-width: 80%;
@@ -12,11 +11,13 @@
   @media (max-width: $breakpoint-small) {
     max-width: 100%;
     padding: var(--spacing-m);
+    align-items: flex-start;
   }
 }
 
 .footer__links {
   display: flex;
+  flex-direction: column;
 
   .navigation-link {
     font-size: var(--font-small);
@@ -24,6 +25,14 @@
 
   .button__label {
     color: var(--color-text-help);
+  }
+
+  .footer__link {
+    margin-left: 0;
+  }
+
+  @media (min-width: $breakpoint-small) {
+    flex-direction: row;
   }
 }
 
