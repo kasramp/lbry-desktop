@@ -104,6 +104,23 @@ export default function Footer() {
           POWERED BY %lbry_link%
         </I18nMessage>
       </span>
+      <ul className="navigation__tertiary footer__links">
+        <li className="footer__link">
+          <Button label={__('About')} href="https://lbry.com/about" />
+        </li>
+        <li className="footer__link">
+          <Button label={__('FAQ')} href="https://odysee.com/@OdyseeHelp:b" />
+        </li>
+        <li className="footer__link">
+          <Button label={__('Support')} href="https://lbry.com/support" />
+        </li>
+        <li className="footer__link">
+          <Button label={__('Terms')} href="https://lbry.com/tos" />
+        </li>
+        <li className="footer__link">
+          <Button label={__('Privacy Policy')} href="https://lbry.com/privacy" />
+        </li>
+      </ul>
     </footer>
   );
 }

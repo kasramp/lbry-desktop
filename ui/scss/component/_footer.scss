@@ -1,6 +1,9 @@
 .footer {
   display: flex;
+  flex-direction: column;
+
   justify-content: center;
+  align-items: center;
   max-width: 80%;
   margin: auto;
   padding: var(--spacing-xl);
@@ -9,8 +12,23 @@
   @media (max-width: $breakpoint-small) {
     max-width: 100%;
     padding: var(--spacing-m);
-    flex-direction: column;
   }
+}
+
+.footer__links {
+  display: flex;
+
+  .navigation-link {
+    font-size: var(--font-small);
+  }
+
+  .button__label {
+    color: var(--color-text-help);
+  }
+}
+
+.footer__link {
+  margin-bottom: var(--spacing-s);
 }
 
 .footer__section {
