@@ -16,6 +16,10 @@
     .card {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
+
+      &:first-child {
+        margin-bottom: 0;
+      }
     }
 
     .card + .file-render {
