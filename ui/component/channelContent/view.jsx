@@ -124,6 +124,7 @@ function ChannelContent(props: Props) {
 
       {claim && claimsInChannel > 0 ? (
         <ClaimListDiscover
+          forceShowReposts
           tileLayout={tileLayout}
           uris={searchResults}
           channelIds={[claim.claim_id]}

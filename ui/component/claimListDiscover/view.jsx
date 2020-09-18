@@ -60,6 +60,7 @@ type Props = {
   tileLayout: boolean,
   hideFilters?: boolean,
   maxPages?: number,
+  forceShowReposts?: boolean,
 };
 
 function ClaimListDiscover(props: Props) {
@@ -104,6 +105,7 @@ function ClaimListDiscover(props: Props) {
     hideFilters = false,
     claimIds,
     maxPages,
+    forceShowReposts = false,
   } = props;
   const didNavigateForward = history.action === 'PUSH';
   const { search } = location;
@@ -122,6 +124,7 @@ function ClaimListDiscover(props: Props) {
   const contentTypeParam = urlParams.get(CS.CONTENT_KEY);
   const claimTypeParam =
     claimType || (CS.CLAIM_TYPES.includes(contentTypeParam) && contentTypeParam) || defaultClaimType || null;
+
   const streamTypeParam =
     streamType || (CS.FILE_TYPES.includes(contentTypeParam) && contentTypeParam) || defaultStreamType || null;
   const durationParam = urlParams.get(CS.DURATION_KEY) || null;
@@ -288,7 +291,7 @@ function ClaimListDiscover(props: Props) {
     }
   }
   // https://github.com/lbryio/lbry-desktop/issues/3774
-  if (hideReposts && !options.reposted_claim_id) {
+  if (hideReposts && !options.reposted_claim_id && !forceShowReposts) {
     // and not claimrepostid
     if (Array.isArray(options.claim_type)) {
       if (options.claim_type.length > 1) {
