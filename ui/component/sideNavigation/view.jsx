@@ -89,7 +89,7 @@ function SideNavigation(props: Props) {
 
   const ABSOLUTE_LINKS: Array<{
     title: string,
-    navigate?: string,
+    link?: string,
     onClick?: () => any,
     icon: string,
     extra?: Node,
@@ -374,6 +374,7 @@ function SideNavigation(props: Props) {
                     <li key={linkProps.icon}>
                       <Button
                         {...passedProps}
+                        navigate={linkProps.link}
                         label={__(linkProps.title)}
                         className="navigation-link"
                         activeClass="navigation-link--active"
