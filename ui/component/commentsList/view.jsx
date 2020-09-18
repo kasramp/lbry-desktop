@@ -1,4 +1,5 @@
 // @flow
+import * as ICONS from 'constants/icons';
 import React, { useEffect } from 'react';
 import Comment from 'component/comment';
 import Spinner from 'component/spinner';
@@ -96,6 +97,7 @@ function CommentList(props: Props) {
             : __('%total_comments% comments', { total_comments: totalComments })
           : __('Leave a comment')
       }
+      titleActions={<Button button="alt" icon={ICONS.REFRESH} onClick={() => fetchComments(uri)} />}
       actions={
         <>
           <CommentCreate uri={uri} />
