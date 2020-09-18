@@ -237,3 +237,8 @@ export const makeSelectRepliesForParentId = (id: string) =>
         : [];
     }
   );
+
+export const makeSelectTotalCommentsCountForUri = (uri: string) =>
+  createSelector(makeSelectCommentsForUri(uri), comments => {
+    return comments ? comments.length : 0;
+  });

@@ -15,15 +15,24 @@ type Props = {
   myChannels: ?Array<ChannelClaim>,
   isFetchingComments: boolean,
   linkedComment: any,
+  totalComments: number,
 };
 
 function CommentList(props: Props) {
-  const { fetchComments, uri, comments, claimIsMine, myChannels, isFetchingComments, linkedComment } = props;
+  const {
+    fetchComments,
+    uri,
+    comments,
+    claimIsMine,
+    myChannels,
+    isFetchingComments,
+    linkedComment,
+    totalComments,
+  } = props;
 
   const linkedCommentId = linkedComment && linkedComment.comment_id;
   const [start] = React.useState(0);
   const [end, setEnd] = React.useState(9);
-  const totalComments = comments && comments.length;
   const hasNoComments = totalComments === 0;
 
   const moreBelow = totalComments - end > 0;
