@@ -352,7 +352,7 @@ function SideNavigation(props: Props) {
                     <li key={linkProps.icon}>
                       <Button
                         {...passedProps}
-                        navigate={link || route}
+                        navigate={route || link}
                         label={__(linkProps.title)}
                         icon={pulseLibrary && linkProps.icon === ICONS.LIBRARY ? ICONS.PURCHASED : linkProps.icon}
                         className={classnames('navigation-link', {
