@@ -96,6 +96,13 @@ function SideNavigation(props: Props) {
     hideForUnauth?: boolean,
   }> = [
     {
+      title: 'Notifications',
+      link: `/$/${PAGES.NOTIFICATIONS}`,
+      icon: ICONS.NOTIFICATION,
+      extra: <NotificationBubble inline />,
+      hideForUnauth: true,
+    },
+    {
       title: 'Upload',
       link: `/$/${PAGES.UPLOAD}`,
       icon: ICONS.PUBLISH,
@@ -129,13 +136,6 @@ function SideNavigation(props: Props) {
       title: 'Wallet',
       link: `/$/${PAGES.WALLET}`,
       icon: ICONS.WALLET,
-      hideForUnauth: true,
-    },
-    {
-      title: 'Notifications',
-      link: `/$/${PAGES.NOTIFICATIONS}`,
-      icon: ICONS.NOTIFICATION,
-      extra: <NotificationBubble inline />,
       hideForUnauth: true,
     },
     {
