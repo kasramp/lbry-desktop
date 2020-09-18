@@ -89,6 +89,11 @@
   overflow: hidden;
 }
 
+.notification__title,
+.notification__text {
+  max-width: 30rem;
+}
+
 .notification__time {
   font-size: var(--font-small);
   color: var(--color-text-help);
