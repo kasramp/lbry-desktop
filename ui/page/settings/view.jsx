@@ -22,10 +22,10 @@ type Price = {
 
 type SetDaemonSettingArg = boolean | string | number;
 
-type DarkModeTimes = {
-  from: { hour: string, min: string, formattedTime: string },
-  to: { hour: string, min: string, formattedTime: string },
-};
+// type DarkModeTimes = {
+//   from: { hour: string, min: string, formattedTime: string },
+//   to: { hour: string, min: string, formattedTime: string },
+// };
 
 type OptionTimes = {
   fromTo: string,
@@ -60,7 +60,7 @@ type Props = {
   floatingPlayer: boolean,
   hideReposts: ?boolean,
   clearPlayingUri: () => void,
-  darkModeTimes: DarkModeTimes,
+  //   darkModeTimes: DarkModeTimes,
   setDarkTime: (string, {}) => void,
   openModal: string => void,
   language?: string,
@@ -161,7 +161,7 @@ class SettingsPage extends React.PureComponent<Props, State> {
       isAuthenticated,
       currentTheme,
       themes,
-      automaticDarkModeEnabled,
+      //   automaticDarkModeEnabled,
       autoplay,
       walletEncrypted,
       // autoDownload,
@@ -172,14 +172,14 @@ class SettingsPage extends React.PureComponent<Props, State> {
       floatingPlayer,
       //   hideReposts,
       clearPlayingUri,
-      darkModeTimes,
+      //   darkModeTimes,
       clearCache,
       //   openModal,
     } = this.props;
     const { storedPassword } = this.state;
     const noDaemonSettings = !daemonSettings || Object.keys(daemonSettings).length === 0;
-    const startHours = ['18', '19', '20', '21'];
-    const endHours = ['5', '6', '7', '8'];
+    // const startHours = ['18', '19', '20', '21'];
+    // const endHours = ['5', '6', '7', '8'];
 
     return (
       <Page
@@ -307,7 +307,7 @@ class SettingsPage extends React.PureComponent<Props, State> {
                       label={__('Theme')}
                       onChange={this.onThemeChange}
                       value={currentTheme}
-                      disabled={automaticDarkModeEnabled}
+                      //   disabled={automaticDarkModeEnabled}
                     >
                       {themes.map(theme => (
                         <option key={theme} value={theme}>
@@ -316,7 +316,7 @@ class SettingsPage extends React.PureComponent<Props, State> {
                       ))}
                     </FormField>
                   </fieldset-section>
-                  <fieldset-section>
+                  {/* <fieldset-section>
                     <FormField
                       type="checkbox"
                       name="automatic_dark_mode"
@@ -354,7 +354,7 @@ class SettingsPage extends React.PureComponent<Props, State> {
                         </FormField>
                       </fieldset-group>
                     )}
-                  </fieldset-section>
+                  </fieldset-section> */}
                 </React.Fragment>
               }
             />

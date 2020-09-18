@@ -105,6 +105,7 @@
 
 .header__navigation-item--balance {
   @extend .button--link;
+  color: var(--color-text);
 }
 
 .header__navigation-item--forward {

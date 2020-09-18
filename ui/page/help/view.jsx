@@ -134,7 +134,7 @@ class HelpPage extends React.PureComponent<Props, State> {
           actions={
             <div className="section__actions">
               <Button
-                href="https://lbry.com/faq"
+                href="https://odysee.com/@OdyseeHelp:b"
                 label={__('View %SITE_NAME% Help Hub', { SITE_NAME })}
                 icon={ICONS.HELP}
                 button="secondary"

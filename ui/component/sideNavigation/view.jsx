@@ -97,68 +97,68 @@ function SideNavigation(props: Props) {
   }> = [
     {
       title: 'Upload',
-      navigate: `/$/${PAGES.UPLOAD}`,
+      link: `/$/${PAGES.UPLOAD}`,
       icon: ICONS.PUBLISH,
     },
     {
       title: 'New Channel',
-      navigate: `/$/${PAGES.CHANNEL_NEW}`,
+      link: `/$/${PAGES.CHANNEL_NEW}`,
       icon: ICONS.CHANNEL,
       hideForUnauth: true,
     },
     {
       title: 'Uploads',
-      navigate: `/$/${PAGES.UPLOADS}`,
+      link: `/$/${PAGES.UPLOADS}`,
       icon: ICONS.PUBLISH,
       hideForUnauth: true,
     },
 
     {
       title: 'Channels',
-      navigate: `/$/${PAGES.CHANNELS}`,
+      link: `/$/${PAGES.CHANNELS}`,
       icon: ICONS.CHANNEL,
       hideForUnauth: true,
     },
     {
       title: 'Creator Analytics',
-      navigate: `/$/${PAGES.CREATOR_DASHBOARD}`,
+      link: `/$/${PAGES.CREATOR_DASHBOARD}`,
       icon: ICONS.ANALYTICS,
       hideForUnauth: true,
     },
     {
       title: 'Wallet',
-      navigate: `/$/${PAGES.WALLET}`,
+      link: `/$/${PAGES.WALLET}`,
       icon: ICONS.WALLET,
       hideForUnauth: true,
     },
     {
       title: 'Notifications',
-      navigate: `/$/${PAGES.NOTIFICATIONS}`,
+      link: `/$/${PAGES.NOTIFICATIONS}`,
       icon: ICONS.NOTIFICATION,
       extra: <NotificationBubble inline />,
       hideForUnauth: true,
     },
     {
       title: 'Rewards',
-      navigate: `/$/${PAGES.REWARDS}`,
+      link: `/$/${PAGES.REWARDS}`,
       icon: ICONS.REWARDS,
       hideForUnauth: true,
     },
     {
       title: 'Invites',
-      navigate: `/$/${PAGES.INVITE}`,
+      link: `/$/${PAGES.INVITE}`,
       icon: ICONS.INVITE,
       hideForUnauth: true,
     },
     {
       title: 'Settings',
-      navigate: `/$/${PAGES.SETTINGS}`,
+      link: `/$/${PAGES.SETTINGS}`,
       icon: ICONS.SETTINGS,
       hideForUnauth: true,
     },
     {
       title: 'Help',
-      navigate: `/$/${PAGES.HELP}`,
+      link: `/$/${PAGES.HELP}`,
       icon: ICONS.HELP,
       hideForUnauth: true,
     },
@@ -172,29 +172,29 @@ function SideNavigation(props: Props) {
 
   const UNAUTH_LINKS: Array<{
     title: string,
-    navigate: string,
+    link: string,
     icon: string,
     extra?: Node,
     hideForUnauth?: boolean,
   }> = [
     {
       title: 'Log In',
-      navigate: `/$/${PAGES.AUTH_SIGNIN}`,
+      link: `/$/${PAGES.AUTH_SIGNIN}`,
       icon: ICONS.SIGN_IN,
     },
     {
       title: 'Sign Up',
-      navigate: `/$/${PAGES.AUTH}`,
+      link: `/$/${PAGES.AUTH}`,
       icon: ICONS.SIGN_UP,
     },
     {
       title: 'Settings',
-      navigate: `/$/${PAGES.SETTINGS}`,
+      link: `/$/${PAGES.SETTINGS}`,
       icon: ICONS.SETTINGS,
     },
     {
       title: 'Help',
-      navigate: `/$/${PAGES.HELP}`,
+      link: `/$/${PAGES.HELP}`,
       icon: ICONS.HELP,
     },
   ];
@@ -347,11 +347,12 @@ function SideNavigation(props: Props) {
               <ul className="navigation-links--absolute">
                 {ODYSEE_LINKS.map(linkProps => {
                   //   $FlowFixMe
-                  const { hideForUnauth, ...passedProps } = linkProps;
+                  const { hideForUnauth, link, route, ...passedProps } = linkProps;
                   return !email && linkProps.hideForUnauth && IS_WEB ? null : (
                     <li key={linkProps.icon}>
                       <Button
                         {...passedProps}
+                        navigate={link || route}
                         label={__(linkProps.title)}
                         icon={pulseLibrary && linkProps.icon === ICONS.LIBRARY ? ICONS.PURCHASED : linkProps.icon}
                         className={classnames('navigation-link', {

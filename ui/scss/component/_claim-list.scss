@@ -174,15 +174,16 @@
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   @media (max-width: $breakpoint-xsmall) {
-    .claim-preview__text {
-      flex-direction: column;
-    }
-
     .claim-preview__actions {
-      align-self: flex-start;
+      .claim-preview__primary-actions {
+        .button {
+          margin-top: 0;
+        }
+      }
     }
   }
 }
@@ -347,6 +348,7 @@
 .claim-grid__title--first {
   text-align: center;
   width: 100%;
+  margin-bottom: var(--spacing-l);
 
   .no-evil {
     font-size: var(--font-heading);
