@@ -68,7 +68,6 @@ type Props = {
   unreadCount: number,
   purchaseSuccess: boolean,
   doClearPurchasedUriSuccess: () => void,
-  user: ?User,
 };
 
 function SideNavigation(props: Props) {
@@ -84,7 +83,6 @@ function SideNavigation(props: Props) {
     isMediumScreen,
     isOnFilePage,
     unreadCount,
-    user,
   } = props;
 
   const ABSOLUTE_LINKS: Array<{
@@ -199,21 +197,12 @@ function SideNavigation(props: Props) {
     },
   ];
 
-  const notificationsEnabled = user && user.experimental_ui;
   const isAuthenticated = Boolean(email);
   const [pulseLibrary, setPulseLibrary] = React.useState(false);
   const isPersonalized = !IS_WEB || isAuthenticated;
   const isAbsolute = isOnFilePage || isMediumScreen;
   const microNavigation = !sidebarOpen || isMediumScreen;
-  const subLinks = email
-    ? ABSOLUTE_LINKS.filter(link => {
-        if (!notificationsEnabled && link.icon === ICONS.NOTIFICATION) {
-          return false;
-        }
-
-        return true;
-      })
-    : UNAUTH_LINKS;
+  const subLinks = email ? ABSOLUTE_LINKS : UNAUTH_LINKS;
 
   React.useEffect(() => {
     if (purchaseSuccess) {
