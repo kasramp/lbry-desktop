@@ -89,7 +89,7 @@ function ClaimListDiscover(props: Props) {
     hideBlock,
     defaultClaimType,
     streamType = CS.FILE_VIDEO,
-    defaultStreamType,
+    defaultStreamType = CS.FILE_VIDEO,
     freshness,
     defaultFreshness = CS.FRESH_WEEK,
     renderProperties,

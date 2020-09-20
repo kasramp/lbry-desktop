@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { isEmpty } from 'util/object';
 import DateTime from 'component/dateTime';
 import Button from 'component/button';
-// import Expandable from 'component/expandable';
+import Expandable from 'component/expandable';
 import MarkdownPreview from 'component/common/markdown-preview';
 import ChannelThumbnail from 'component/channelThumbnail';
 import { Menu, MenuList, MenuButton, MenuItem } from '@reach/menu-button';
@@ -196,13 +196,15 @@ function Comment(props: Props) {
             </Form>
           ) : editedMessage.length >= LENGTH_TO_COLLAPSE ? (
             <div className="comment__message">
-              {/* <Expandable> */}
-              <MarkdownPreview content={message} />
-              {/* </Expandable> */}
+              <Expandable>
+                <MarkdownPreview content={message} />
+              </Expandable>
             </div>
           ) : (
             <div className="comment__message">
-              <MarkdownPreview content={message} />
+              <Expandable>
+                <MarkdownPreview content={message} />
+              </Expandable>
             </div>
           )}
         </div>

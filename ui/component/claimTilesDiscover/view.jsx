@@ -63,6 +63,7 @@ function ClaimTilesDiscover(props: Props) {
   const urlParams = new URLSearchParams(location.search);
   const feeAmountInUrl = urlParams.get('fee_amount');
   const feeAmountParam = feeAmountInUrl || feeAmount || CS.FEE_AMOUNT_ONLY_FREE;
+
   const options: {
     page_size: number,
     no_totals: boolean,
@@ -78,6 +79,7 @@ function ClaimTilesDiscover(props: Props) {
     timestamp?: string,
     fee_amount?: string,
     limit_claims_per_channel?: number,
+    stream_types: Array<string>,
   } = {
     page_size: pageSize,
     claim_type: claimType || undefined,
@@ -93,6 +95,7 @@ function ClaimTilesDiscover(props: Props) {
       // If channelIds were passed in, we don't need not_channel_ids
       (!channelIds && hiddenUris && hiddenUris.length ? hiddenUris.map(hiddenUri => hiddenUri.split('#')[1]) : []),
     order_by: orderBy || ['trending_group', 'trending_mixed'],
+    stream_types: [CS.FILE_VIDEO],
   };
 
   if (releaseTime) {
